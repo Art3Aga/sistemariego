@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "sistemariego-de91e": {
+      "hosting": {
+        "sistemariego": [
+          "sistemariego-de91e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "sistemariego-de91e"
+  }
+}
