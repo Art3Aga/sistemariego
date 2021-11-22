@@ -23,6 +23,13 @@ import { environment } from '../environments/environment';
 //Angular Material
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle'; 
+
+
+
+
+import { Aspersor1Component } from './views/aspersor1/aspersor1.component';
+import { Aspersor2Component } from './views/aspersor2/aspersor2.component';
 
 
 
@@ -30,7 +37,9 @@ import { MatMenuModule } from '@angular/material/menu';
   declarations: [
     AppComponent,
     HomeComponent,
-    SidenavComponent
+    SidenavComponent,
+    Aspersor1Component,
+    Aspersor2Component
   ],
   imports: [
     BrowserModule,
@@ -44,7 +53,8 @@ import { MatMenuModule } from '@angular/material/menu';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

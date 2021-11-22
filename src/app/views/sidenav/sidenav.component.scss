@@ -76,14 +76,14 @@ mat-nav-list {
 }
 .active {
   background-color: var(--primario) !important;
-  color: white !important;
+  color: black !important;
   border-radius: 10px;
   -webkit-box-shadow: 0 3px 15px rgba(189,189,189,1);
   -moz-box-shadow: 0 3px 15px rgba(189,189,189,1);
   box-shadow: 0 3px 15px rgba(189,189,189,1);
   transition: 1s;
   mat-icon {
-    color: white !important;
+    //color: white !important;
   }
 }
 
