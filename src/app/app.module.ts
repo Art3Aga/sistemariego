@@ -23,13 +23,21 @@ import { environment } from '../environments/environment';
 //Angular Material
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle'; 
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
+
+
+//ChartJS
+import { ChartsModule } from 'ng2-charts';
 
 
 
 import { Aspersor1Component } from './views/aspersor1/aspersor1.component';
 import { Aspersor2Component } from './views/aspersor2/aspersor2.component';
+import { GraficaComponent } from './components/grafica/grafica.component';
+import { TablaComponent } from './components/tabla/tabla.component';
 
 
 
@@ -39,7 +47,9 @@ import { Aspersor2Component } from './views/aspersor2/aspersor2.component';
     HomeComponent,
     SidenavComponent,
     Aspersor1Component,
-    Aspersor2Component
+    Aspersor2Component,
+    GraficaComponent,
+    TablaComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +64,10 @@ import { Aspersor2Component } from './views/aspersor2/aspersor2.component';
     provideFirestore(() => getFirestore()),
     MatIconModule,
     MatMenuModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    ChartsModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
