@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
+import { AspersorModel } from 'src/app/models/aspersor_model';
 
 @Component({
   selector: 'app-grafica',
@@ -9,19 +10,20 @@ import { Color, Label } from 'ng2-charts';
 })
 export class GraficaComponent implements OnInit {
 
-  public lineChartData: ChartDataSets[] = [
+  @Input() dataAspersor!: AspersorModel[];
+  humedad: number[] = [];
+  temperatura: number[] = [];
 
-    { data: [61, 59, 80, 65, 45, 55, 40, 56, 76, 65, 77, 60], label: 'Apple' },
-
-  ];
-
-
-
-  public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  public lineChartData: ChartDataSets[] = [];
 
 
 
-  public lineChartOptions = {
+  //public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  public lineChartLabels: Label[] = [];
+
+
+
+  public lineChartOptions: ChartOptions = {
 
     responsive: true,
 
@@ -38,6 +40,10 @@ export class GraficaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.humedad = this.dataAspersor.map(data => data.humedad);
+    this.temperatura = this.dataAspersor.map(data => data.temperatura);
+    this.lineChartData = [ { data: this.humedad, label: 'Humedad' }, { data: this.temperatura, label: 'Temperatura' },  ]
+    this.lineChartLabels = this.dataAspersor.map(data => data.date);
   }
 
 }

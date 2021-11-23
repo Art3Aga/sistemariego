@@ -11,10 +11,10 @@
 
 
 
-<div class="grafica">
-  <app-grafica></app-grafica>
+<div class="grafica" *ngIf="dataAspersor">
+  <app-grafica [dataAspersor]="dataAspersor"></app-grafica>
 </div>
 
-<div class="tabla">
-  <app-tabla></app-tabla>
+<div class="tabla" *ngIf="dataAspersor">
+  <app-tabla [dataAspersor]="dataAspersor"></app-tabla>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { Subscription } from 'rxjs';
+import { AspersorModel } from 'src/app/models/aspersor_model';
 
 @Component({
   selector: 'app-aspersor1',
@@ -10,6 +11,9 @@ import { Subscription } from 'rxjs';
 export class Aspersor1Component implements OnInit, OnDestroy {
 
   aspersor1Subscription!: Subscription;
+
+  dataAspersor!: AspersorModel[];
+  
 
   constructor(private firestore: Firestore) { }
 
@@ -21,7 +25,7 @@ export class Aspersor1Component implements OnInit, OnDestroy {
     const coleccion = collection(this.firestore, 'aspersor_1');
     const data = collectionData(coleccion);
     this.aspersor1Subscription = data.subscribe(data => {
-      console.log(data);
+      this.dataAspersor = (data as AspersorModel[]);      
     })
   }
 

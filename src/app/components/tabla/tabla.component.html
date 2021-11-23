@@ -1,44 +1,39 @@
-<div class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource" matSort matSortActive="fecha" matSortDisableClear matSortDirection="desc">
+<div class="mat-elevation-z8 table">
+  <table mat-table [dataSource]="dataSource" matSort matSortActive="humedad" matSortDisableClear matSortDirection="desc">
 
   <tbody>
 
-    <ng-container matColumnDef="fecha">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear> ID </th>
-      <td mat-cell *matCellDef="let row"> <div class="fecha">{{row.fecha}}</div> </td>
-    </ng-container>
-
-    <div matColumnDef="referencia">
-      <th  mat-header-cell *matHeaderCellDef mat-sort-header disableClear> Username </th>
-      <td  mat-cell *matCellDef="let row"> <div class="referencia">{{row.referencia}}</div> </td>
+    <div matColumnDef="no">
+      <th  mat-header-cell *matHeaderCellDef mat-sort-header disableClear> Nº </th>
+      <td  mat-cell *matCellDef="let row; let i = index"> <div class="referencia">{{ i }}</div> </td>
     </div>
 
-    <div matColumnDef="descripcion">
-      <th id="descripcion-th" mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-      <td mat-cell *matCellDef="let row"> <div class="descripcion">{{row.descripcion}}</div> </td>
+    <div matColumnDef="humedad">
+      <th  mat-header-cell *matHeaderCellDef mat-sort-header disableClear> Humedad </th>
+      <td  mat-cell *matCellDef="let row"> <div class="referencia">{{row.humedad}}</div> </td>
     </div>
 
-    <div matColumnDef="monto">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
-      <td mat-cell *matCellDef="let row"> <div class="monto">{{row.monto}}</div> </td>
+    <div matColumnDef="temperatura">
+      <th id="descripcion-th" mat-header-cell *matHeaderCellDef mat-sort-header> Temperatura </th>
+      <td mat-cell *matCellDef="let row"> <div class="descripcion">{{row.temperatura}}</div> </td>
     </div>
 
-    <div matColumnDef="moneda">
-      <th  mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
-      <td  mat-cell *matCellDef="let row"> {{row.moneda}} </td>
+    <div matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
+      <td mat-cell *matCellDef="let row"> <div class="monto">{{row.date}}</div> </td>
     </div>
 
-    <div matColumnDef="balance">
-      <th  mat-header-cell *matHeaderCellDef mat-sort-header> Phone </th>
-      <td  mat-cell *matCellDef="let row"> {{row.balance}} </td>
+    <div matColumnDef="estado">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
+      <td mat-cell *matCellDef="let row"> <div class="monto">{{row.estado}}</div> </td>
     </div>
 
-    <div matColumnDef="currency">
-      <th  mat-header-cell *matHeaderCellDef mat-sort-header> Website </th>
-      <td  mat-cell *matCellDef="let row"> {{row.currency}} </td>
+    <div matColumnDef="automatico">
+      <th  mat-header-cell *matHeaderCellDef mat-sort-header> Automatico </th>
+      <td  mat-cell *matCellDef="let row"> {{row.automatico}} </td>
     </div>
 
-    <div matColumnDef="estatus">
+    <!--<div matColumnDef="estatus">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Estatus </th>
       <td mat-cell *matCellDef="let row">
         <div class="status">
@@ -47,7 +42,7 @@
           </div>
         </div>
       </td>
-    </div>
+    </div>-->
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
     <tr class="data-rows" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -56,6 +51,6 @@
 
 </table>
 
-<mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20, 100]"></mat-paginator>
+<mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20, 100]"></mat-paginator>
 </div>
 
