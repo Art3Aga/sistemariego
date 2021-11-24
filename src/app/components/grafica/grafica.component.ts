@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { AspersorModel } from 'src/app/models/aspersor_model';
@@ -8,7 +8,7 @@ import { AspersorModel } from 'src/app/models/aspersor_model';
   templateUrl: './grafica.component.html',
   styleUrls: ['./grafica.component.scss']
 })
-export class GraficaComponent implements OnInit {
+export class GraficaComponent implements OnInit, OnChanges {
 
   @Input() dataAspersor!: AspersorModel[];
   humedad: number[] = [];
@@ -39,7 +39,18 @@ export class GraficaComponent implements OnInit {
 
   constructor() { }
 
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if(changes) {
+      this.setData();
+    }
+  }
+
   ngOnInit(): void {
+    this.setData()
+  }
+
+  setData() {
     this.humedad = this.dataAspersor.map(data => data.humedad);
     this.temperatura = this.dataAspersor.map(data => data.temperatura);
     this.lineChartData = [ { data: this.humedad, label: 'Humedad' }, { data: this.temperatura, label: 'Temperatura' },  ]
